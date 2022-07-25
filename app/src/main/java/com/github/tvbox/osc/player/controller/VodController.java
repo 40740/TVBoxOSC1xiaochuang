@@ -123,7 +123,7 @@ public class VodController extends BaseController {
         mPlayerTimeStartBtn = findViewById(R.id.play_time_start);
         mPlayerTimeSkipBtn = findViewById(R.id.play_time_end);
         mPlayerTimeStepBtn = findViewById(R.id.play_time_step);
-        mPlayerTimeRestBtn = findViewById(R.id.play_time_reset)
+       
         mGridView.setLayoutManager(new V7LinearLayoutManager(getContext(), 0, false));
         ParseAdapter parseAdapter = new ParseAdapter();
         parseAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
