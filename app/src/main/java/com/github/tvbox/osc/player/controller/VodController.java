@@ -99,7 +99,7 @@ public class VodController extends BaseController {
     TextView mPlayerTimeStartBtn;
     TextView mPlayerTimeSkipBtn;
     TextView mPlayerTimeStepBtn;
-
+    TextView mPlayerTimeRestBtn;
     @Override
     protected void initView() {
         super.initView();
@@ -123,7 +123,7 @@ public class VodController extends BaseController {
         mPlayerTimeStartBtn = findViewById(R.id.play_time_start);
         mPlayerTimeSkipBtn = findViewById(R.id.play_time_end);
         mPlayerTimeStepBtn = findViewById(R.id.play_time_step);
-
+        mPlayerTimeRestBtn = findViewById(R.id.play_time_reset)
         mGridView.setLayoutManager(new V7LinearLayoutManager(getContext(), 0, false));
         ParseAdapter parseAdapter = new ParseAdapter();
         parseAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
@@ -283,19 +283,19 @@ public class VodController extends BaseController {
                     e.printStackTrace();
                 }
             }
-        });
-        findViewById(R.id.play_time_reset).setOnClickListener(new OnClickListener() {
+        });  
+           mPlayerTimeRestBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    mPlayerConfig.put("et", 0);
-                    mPlayerConfig.put("st", 0);
+                   mPlayerConfig.put("et", 0);
+                   mPlayerConfig.put("st", 0);
                     updatePlayerCfgView();
-                    listener.updatePlayerCfg();
+                   listener.updatePlayerCfg();
                 } catch (JSONException e) {
                     e.printStackTrace();
-                }
-            }
+               }
+           }
         });
         mPlayerTimeStartBtn.setOnClickListener(new OnClickListener() {
             @Override
